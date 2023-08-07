@@ -1,0 +1,36 @@
+.td-item {
+    min-height: 70px;
+    display: flex;
+    border: 1px solid #d3d3d3;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.td-item--complete {
+    background-color: #70ff8b;
+    box-shadow: 2px 2px 4px #38a44c;
+    opacity: 0.5;
+    order: 1;
+}
+
+.td-check {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.td-item-p--complete {
+    width: 70%;
+}
+
+
+
+
+
+.td-remove {
+    margin-right: 10px;
+    align-self: flex-start;
+    cursor: pointer;
+}
+

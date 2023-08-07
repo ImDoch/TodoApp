@@ -1,0 +1,29 @@
+.td-listContainer {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    order: 2;
+}
+
+.td-listContainer h1{
+    font-size: 30px;
+    align-self: flex-start;
+}
+
+.td-list {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (min-width: 768px) {
+    .td-list {
+        height: 65vh;
+        overflow-y: auto;
+    }
+}

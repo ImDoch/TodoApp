@@ -1,0 +1,6 @@
+.td-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    order: 1;
+}

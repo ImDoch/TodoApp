@@ -1,0 +1,27 @@
+.td-btnCreate {
+    position: fixed;
+    top: 93%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 340px;
+    border: 1px solid #0a5266;
+    padding: 10px;
+    background-color: #0a5266;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    order: 3;
+    z-index: 99;
+}
+
+@media (min-width: 768px) {
+    .td-btnCreate {
+        position: static;
+        transform: translate(0);
+    }
+}

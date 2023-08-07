@@ -1,0 +1,13 @@
+input {
+    border: 1px solid #D3D3D3;
+    outline-color: #0a5266;
+    padding: 10px 16px;
+    border-radius: 8px;
+    width: 100%;
+    align-self: center;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('./assets/searcg.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 8px) center;
+}
+
