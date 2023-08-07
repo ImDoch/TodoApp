@@ -26,7 +26,30 @@ function App() {
 
   //Evaluando cuantos Todos fueron completados (Estado Derivado)
   const completedTodos = todos.filter(todo => todo.completed).length
+
+  //Extrayendo el dato de cuantos Todos tenemos en total
   const totalTodos = todos.length
+
+  //Filtrando los Todos sengun lo que se escriba en el input
+  const searchedTodos = todos.filter((todo) => {
+    const todoText = todo.text.toLowerCase()
+    const searchText = searchValue.toLowerCase()
+    return todoText.includes(searchText)
+  })
+
+  const completeTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex(todo => todo.text == text)
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos)
+  }
+
+  const deleteTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex(todo => todo.text == text)
+    newTodos.splice(todoIndex, 1)
+    setTodos(newTodos)
+  }
 
   return (
     <>
@@ -41,11 +64,14 @@ function App() {
       </TodoHeader>
 
       <TodoList>
-        {defaultTodos.map(todo => (
+        {searchedTodos.map(todo => (
           <TodoItem
            key = {todo.text} 
            task = {todo.text}
            completed = {todo.completed}
+           //Enviaremos una propiedad simulando que es un evento, que ejecutara una funcion
+           onComplete = {() => completeTodo(todo.text)}
+           onDelete = {() => deleteTodo(todo.text)}
           />
         ))}
       </TodoList>
