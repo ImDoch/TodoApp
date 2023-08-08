@@ -12,7 +12,7 @@ function TodoSearch({
 
     return(
         <input
-            placeholder="Buscar"
+            placeholder="Buscar Todos"
             //Atamos el atributo value al valor del estado del componente, y como en el onChange este valor cambiara, por lo tanto en el input tambien se vera reflejado el cambio
             value={searchValue}
             onChange={(event) => {

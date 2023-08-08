@@ -68,7 +68,6 @@ function App() {
         <TodoCounter 
           completed={completedTodos} 
           total={totalTodos} 
-          name={"Jeison"}
           allTodosCompleted={allTodosCompleted}
           withoutTodos={withoutTodos}
         />
