@@ -40,7 +40,7 @@ function App() {
   const completeTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex(todo => todo.text == text)
-    newTodos[todoIndex].completed = true;
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed
     setTodos(newTodos)
   }
 
@@ -51,10 +51,19 @@ function App() {
     setTodos(newTodos)
   }
 
+  const allTodosCompleted = todos.every(todo => todo.completed);
+  const withoutTodos = todos.length == 0;
+
   return (
     <>
       <TodoHeader>
-        <TodoCounter completed={completedTodos} total={totalTodos} name={"Jeison"}/>
+        <TodoCounter 
+          completed={completedTodos} 
+          total={totalTodos} 
+          name={"Jeison"}
+          allTodosCompleted={allTodosCompleted}
+          withoutTodos={withoutTodos}
+        />
         <TodoSearch 
           //Usando como props el estado
           searchValue = {searchValue}

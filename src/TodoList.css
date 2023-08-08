@@ -23,7 +23,7 @@
 
 @media (min-width: 768px) {
     .td-list {
-        height: 65vh;
+        height: 45vh;
         overflow-y: auto;
     }
 }

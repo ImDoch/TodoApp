@@ -17,6 +17,7 @@
     cursor: pointer;
     order: 3;
     z-index: 99;
+    align-self: center;
 }
 
 @media (min-width: 768px) {

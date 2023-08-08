@@ -1,4 +1,6 @@
 import './TodoItem.css';
+
+import checkIconComplete from './assets/check-complete.svg'
 import checkIcon from './assets/check.svg'
 import closeIcon from './assets/close.svg'
 
@@ -8,18 +10,21 @@ import closeIcon from './assets/close.svg'
 function TodoItem({task, completed, onComplete, onDelete}) {
     return(
       <li className={`td-item ${completed ? 'td-item--complete' : ''}`}>
+        
         <img 
-        className='td-check' 
-        src={checkIcon} 
-        alt="icono de check"
-        onClick={onComplete}
-      /> 
+          className='td-check' 
+          src={completed ?  checkIconComplete : checkIcon } 
+          alt="icono de check"
+          onClick={onComplete}
+        />
+
         <p className='td-item-p--complete'>{task}</p>
+
         <img 
-        className='td-remove' 
-        src={closeIcon} 
-        alt="icono de cerrar"
-        onClick={onDelete}
+          className='td-remove' 
+          src={closeIcon} 
+          alt="icono de cerrar"
+          onClick={onDelete}
         />
       </li>
     )
