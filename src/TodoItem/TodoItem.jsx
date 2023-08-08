@@ -1,8 +1,8 @@
 import './TodoItem.css';
 
-import checkIconComplete from './assets/check-complete.svg'
-import checkIcon from './assets/check.svg'
-import closeIcon from './assets/close.svg'
+import checkIconComplete from '../assets/check-complete.svg'
+import checkIcon from '../assets/check.svg'
+import closeIcon from '../assets/close.svg'
 
 
 

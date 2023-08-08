@@ -1,31 +1,21 @@
 import { useState } from 'react';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoList } from './TodoList';
-import { CreateTodoButton } from './CreateTodoButton';
-import { TodoItem } from './TodoItem';
-import { TodoHeader } from './TodoHeader';
+import { TodoCounter } from '../TodoCounter/TodoCounter';
+import { TodoSearch } from '../TodoSearch/TodoSearch';
+import { TodoList } from '../TodoList/TodoList';
+import { CreateTodoButton } from '../CreateTodoButton/CreateTodoButton';
+import { TodoItem } from '../TodoItem/TodoItem';
+import { TodoHeader } from '../TodoHeader/TodoHeader';
+import { useLocalStorage } from './useLocalStorage';
 import './App.css';
 
+
+
 function App() {
-  
-
   //Creando el estado para contar Todos, cuantos son y cuales tengo completados
-  const [todos, setTodos] = useState(() => {
-    let parsedTodos;
-    
-    parsedTodos = JSON.parse(localStorage.getItem('TODOS_V1'));
-
-    if (!parsedTodos) {
-      parsedTodos = localStorage.setItem('TODOS_V1', JSON.stringify([]))
-    }
-    return parsedTodos
-
-  });
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
 
   //Creando estado que sera usando por el componente TodoSearch para guardar el valor, y por TodoList para filtrar los Todos por ese valor
   const [searchValue, setSearchValue] = useState('');
-  console.log('Los usuarios buscan todos de: ', searchValue);
 
   //Evaluando cuantos Todos fueron completados (Estado Derivado)
   const completedTodos = todos.filter(todo => todo.completed).length
@@ -39,11 +29,6 @@ function App() {
     const searchText = searchValue.toLowerCase()
     return todoText.includes(searchText)
   })
-
-  const saveTodos = (newTodos) => {
-    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos))
-    setTodos(newTodos)
-  }
 
   const completeTodo = (text) => {
     const newTodos = [...todos]

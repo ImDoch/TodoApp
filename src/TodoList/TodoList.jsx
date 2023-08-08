@@ -1,5 +1,5 @@
 import './TodoList.css'
-import { DefaultTodoItem } from './DefaultTodoItem'
+import { DefaultTodoItem } from '../DefaultTodoItem/DefaultTodoItem'
 
 /* eslint-disable react/prop-types */
 function TodoList({children, withoutTodos}) {

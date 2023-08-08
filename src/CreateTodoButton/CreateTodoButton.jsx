@@ -1,5 +1,5 @@
 import './CreateTodoButton.css'
-import btnIcon from './assets/add.svg'
+import btnIcon from '../assets/add.svg'
 
 function CreateTodoButton() {
     return(
