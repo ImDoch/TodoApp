@@ -7,18 +7,21 @@ import { TodoItem } from './TodoItem';
 import { TodoHeader } from './TodoHeader';
 import './App.css';
 
-
-const defaultTodos = [
-  {text: "Cortar cebolla, con mi mama mamita mia hola que hace", completed: true},
-  {text: "Tomar el curso de React", completed: false},
-  {text: "Llolar con la llorona", completed: true},
-  {text: "LALALALALA", completed: false},
-  {text: "XXXXXXXXXXX", completed: false},
-]
-
 function App() {
+  
+
   //Creando el estado para contar Todos, cuantos son y cuales tengo completados
-  const [todos, setTodos] = useState(defaultTodos);
+  const [todos, setTodos] = useState(() => {
+    let parsedTodos;
+    
+    parsedTodos = JSON.parse(localStorage.getItem('TODOS_V1'));
+
+    if (!parsedTodos) {
+      parsedTodos = localStorage.setItem('TODOS_V1', JSON.stringify([]))
+    }
+    return parsedTodos
+
+  });
 
   //Creando estado que sera usando por el componente TodoSearch para guardar el valor, y por TodoList para filtrar los Todos por ese valor
   const [searchValue, setSearchValue] = useState('');
@@ -37,18 +40,23 @@ function App() {
     return todoText.includes(searchText)
   })
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos))
+    setTodos(newTodos)
+  }
+
   const completeTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex(todo => todo.text == text)
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
   const deleteTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex(todo => todo.text == text)
     newTodos.splice(todoIndex, 1)
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
   const allTodosCompleted = todos.every(todo => todo.completed);
@@ -72,7 +80,9 @@ function App() {
         <CreateTodoButton/>
       </TodoHeader>
 
-      <TodoList>
+      <TodoList
+        withoutTodos={withoutTodos}
+      >
         {searchedTodos.map(todo => (
           <TodoItem
            key = {todo.text} 
