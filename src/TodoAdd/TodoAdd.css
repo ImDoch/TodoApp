@@ -1,0 +1,41 @@
+.td-add-container {
+    width: 350px;
+    height: 350px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    color: #fff;
+    background-color: rgba(32, 35, 41, .8);
+    padding: 16px;
+}
+
+.close-modal {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.write-todo {
+    width: 250px;
+    height: 70px;
+    resize: none;
+    border: 1px solid #D3D3D3;
+    outline-color: #0a5266;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-add {
+    border: 1px solid #0a5266;
+    padding: 10px;
+    background-color: #0a5266;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}

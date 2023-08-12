@@ -8,23 +8,24 @@ import { TodoHeader } from '../TodoHeader/TodoHeader';
 import { TodoContext } from '../TodoContext/TodoContex';
 import './App.css';
 import { useContext } from 'react';
+import { Modal } from '../Modal/Modal';
+import { TodoAdd } from '../TodoAdd/TodoAdd';
 function App() {
   const {
     withoutTodos,
     searchedTodos,
     completeTodo,
     deleteTodo,
+    openModal
   } = useContext(TodoContext)
 
   return (
     <>
-
       <TodoHeader>
         <TodoCounter />
         <TodoSearch />
         <CreateTodoButton />
       </TodoHeader>
-
 
       <TodoList
         withoutTodos={withoutTodos}
@@ -40,6 +41,12 @@ function App() {
           />
         ))}
       </TodoList>
+
+      {openModal && (
+        <Modal>
+          <TodoAdd/>
+        </Modal>
+      )}
     </>
   );
 }
