@@ -39,8 +39,10 @@ function TodoProvider({children}) {
         saveTodos(newTodos)
     }
 
-    const allTodosCompleted = todos.every(todo => todo.completed);
-    const withoutTodos = todos.length == 0;
+    const allTodosCompleted = todos.every(todo => todo.completed)
+    const withoutTodos = todos.length == 0
+
+    const [openModal, setOpenModal] = useState(false)
 
     return (
         <TodoContext.Provider value={{
@@ -52,7 +54,9 @@ function TodoProvider({children}) {
             allTodosCompleted,
             withoutTodos,
             setSearchValue,
-            searchValue
+            searchValue,
+            openModal,
+            setOpenModal
         }}>
             {children}
         </TodoContext.Provider>
