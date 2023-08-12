@@ -1,8 +1,11 @@
 import './TodoList.css'
 import { DefaultTodoItem } from '../DefaultTodoItem/DefaultTodoItem'
+import { useContext } from 'react'
+import { TodoContext } from '../TodoContext/TodoContex'
 
 /* eslint-disable react/prop-types */
-function TodoList({children, withoutTodos}) {
+function TodoList({children}) {
+    const { withoutTodos } = useContext(TodoContext)
     const render = withoutTodos ? <DefaultTodoItem /> : children
     return(
         <div className='td-listContainer'>
