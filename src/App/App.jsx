@@ -10,6 +10,7 @@ import './App.css';
 import { useContext } from 'react';
 import { Modal } from '../Modal/Modal';
 import { TodoAdd } from '../TodoAdd/TodoAdd';
+
 function App() {
   const {
     withoutTodos,

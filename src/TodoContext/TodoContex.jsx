@@ -44,6 +44,15 @@ function TodoProvider({children}) {
 
     const [openModal, setOpenModal] = useState(false)
 
+    const addTodoValue = (text) => {
+        const newTodos = [...todos]
+        newTodos.push({
+            text,
+            completed: false
+        })
+        saveTodos(newTodos)
+    }
+
     return (
         <TodoContext.Provider value={{
             completedTodos,
@@ -56,7 +65,8 @@ function TodoProvider({children}) {
             setSearchValue,
             searchValue,
             openModal,
-            setOpenModal
+            setOpenModal,
+            addTodoValue
         }}>
             {children}
         </TodoContext.Provider>
