@@ -1,11 +1,18 @@
 .modal {
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(32, 35, 41, .8);
+    background-color: rgba(68, 70, 74, 0.8);
     z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .modal {
+        align-items: flex-end;
+    }
 }

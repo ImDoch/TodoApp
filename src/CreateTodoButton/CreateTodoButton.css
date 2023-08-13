@@ -24,5 +24,6 @@
     .td-btnCreate {
         position: static;
         transform: translate(0);
+        width: 180px;
     }
 }
