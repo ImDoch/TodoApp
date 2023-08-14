@@ -5,8 +5,8 @@ import { TodoContext } from '../TodoContext/TodoContex'
 
 /* eslint-disable react/prop-types */
 function TodoList({children}) {
-    const { withoutTodos } = useContext(TodoContext)
-    const render = withoutTodos ? <DefaultTodoItem /> : children
+    const { withoutTodos, searchedTodos } = useContext(TodoContext)
+    const render = withoutTodos || searchedTodos.length == 0 ? <DefaultTodoItem /> : children
     return(
         <div className='td-listContainer'>
             <h1>Mis Todos </h1>

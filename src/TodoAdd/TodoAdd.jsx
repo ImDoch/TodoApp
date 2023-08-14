@@ -36,6 +36,7 @@ function TodoAdd() {
                 placeholder="Añade un Todo"
                 value={newTodoValue}
                 onChange={onChange}
+                required
             />
             <button className='btn-add'>
             </button>

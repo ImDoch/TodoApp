@@ -13,7 +13,6 @@ import { TodoAdd } from '../TodoAdd/TodoAdd';
 
 function App() {
   const {
-    withoutTodos,
     searchedTodos,
     completeTodo,
     deleteTodo,
@@ -28,9 +27,7 @@ function App() {
         <CreateTodoButton />
       </TodoHeader>
 
-      <TodoList
-        withoutTodos={withoutTodos}
-      >
+      <TodoList>
         {searchedTodos.map(todo => (
           <TodoItem
             key={todo.text}

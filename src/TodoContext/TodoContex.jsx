@@ -22,7 +22,8 @@ function TodoProvider({children}) {
     const searchedTodos = todos.filter((todo) => {
         const todoText = todo.text.toLowerCase()
         const searchText = searchValue.toLowerCase()
-        return todoText.includes(searchText)
+        const newTodos = todoText.includes(searchText)
+        return newTodos
     })
 
     const completeTodo = (text) => {
