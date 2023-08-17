@@ -5,29 +5,50 @@ import { TodoList } from '../TodoList/TodoList';
 import { CreateTodoButton } from '../CreateTodoButton/CreateTodoButton';
 import { TodoItem } from '../TodoItem/TodoItem';
 import { TodoHeader } from '../TodoHeader/TodoHeader';
-import { TodoContext } from '../TodoContext/TodoContex';
 import './App.css';
-import { useContext } from 'react';
 import { Modal } from '../Modal/Modal';
 import { TodoAdd } from '../TodoAdd/TodoAdd';
+import { useTodos } from './useTodos';
 
 function App() {
   const {
     searchedTodos,
     completeTodo,
     deleteTodo,
-    openModal
-  } = useContext(TodoContext)
+    openModal,
+    searchValue,
+    setSearchValue,
+    completedTodos,
+    totalTodos,
+    allTodosCompleted,
+    withoutTodos,
+    setOpenModal,
+    addTodoValue
+  } = useTodos()
 
   return (
     <>
       <TodoHeader>
-        <TodoCounter />
-        <TodoSearch />
-        <CreateTodoButton />
+        <TodoCounter 
+          completedTodos = {completedTodos}
+          totalTodos = {totalTodos}
+          allTodosCompleted = {allTodosCompleted}
+          withoutTodos = {withoutTodos}
+        />
+        <TodoSearch 
+          searchValue = {searchValue}
+          setSearchValue = {setSearchValue}
+        />
+        <CreateTodoButton 
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+        />
       </TodoHeader>
 
-      <TodoList>
+      <TodoList
+        withoutTodos={withoutTodos}
+        searchedTodos={searchedTodos}
+      >
         {searchedTodos.map(todo => (
           <TodoItem
             key={todo.text}
@@ -42,7 +63,10 @@ function App() {
 
       {openModal && (
         <Modal>
-          <TodoAdd/>
+          <TodoAdd 
+            setOpenModal={setOpenModal}
+            addTodoValue={addTodoValue}
+          />
         </Modal>
       )}
     </>

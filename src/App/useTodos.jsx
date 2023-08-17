@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 
-import { createContext, useState } from "react";
+import { useState } from "react";
 import { useLocalStorage } from './useLocalStorage';
 
-const TodoContext = createContext()
 
-function TodoProvider({children}) {
+function useTodos() {
     //Creando el estado para contar Todos, cuantos son y cuales tengo completados
     const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
 
@@ -54,24 +53,20 @@ function TodoProvider({children}) {
         saveTodos(newTodos)
     }
 
-    return (
-        <TodoContext.Provider value={{
-            completedTodos,
-            totalTodos,
-            searchedTodos,
-            completeTodo,
-            deleteTodo,
-            allTodosCompleted,
-            withoutTodos,
-            setSearchValue,
-            searchValue,
-            openModal,
-            setOpenModal,
-            addTodoValue
-        }}>
-            {children}
-        </TodoContext.Provider>
-    )
+    return ({
+        completedTodos,
+        totalTodos,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        allTodosCompleted,
+        withoutTodos,
+        setSearchValue,
+        searchValue,
+        openModal,
+        setOpenModal,
+        addTodoValue
+    })
 }
 
-export { TodoContext, TodoProvider }
+export { useTodos }

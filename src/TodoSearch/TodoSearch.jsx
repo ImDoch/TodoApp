@@ -1,18 +1,11 @@
-
-import { useContext } from 'react';
 import './TodoSearch.css';
-import { TodoContext } from '../TodoContext/TodoContex';
+
 
 /* eslint-disable react/prop-types */
-function TodoSearch() {
+function TodoSearch({ searchValue, setSearchValue}) {
     //Creamos un estado
     //const [searchValue, setSearchValue] = useState('');
     //console.log('Los usuarios buscan todos de: ', searchValue);
-    const {
-        searchValue,
-        setSearchValue
-    } = useContext(TodoContext)
-
     return(
         <input
             className='search'

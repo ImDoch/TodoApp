@@ -1,10 +1,7 @@
-import { useContext } from 'react'
 import './DefaultTodoItem.css'
-import { TodoContext } from '../TodoContext/TodoContex'
 
-
-function DefaultTodoItem() {
-    const { withoutTodos } = useContext(TodoContext)
+/* eslint-disable react/prop-types */
+function DefaultTodoItem({ withoutTodos } ) {
     return(
         <div className="td-item-default">
             <p>{withoutTodos ? 'Crea tu primer Todo' : 'Todos no encontrados'}</p>

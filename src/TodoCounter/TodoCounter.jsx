@@ -1,16 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useContext } from 'react'
 import './TodoCounter.css'
-import { TodoContext } from '../TodoContext/TodoContex'
 
-
-function TodoCounter() {
-    const {
-        completedTodos,
-        totalTodos,
-        allTodosCompleted,
-        withoutTodos,
-    } = useContext(TodoContext)
+function TodoCounter({ completedTodos, totalTodos, allTodosCompleted, withoutTodos }) {
 
     const text = allTodosCompleted ? `🎉Has completado todos los Todos` : `Has completado ${completedTodos} de ${totalTodos} Todos`
     const imgSrc = `https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg`

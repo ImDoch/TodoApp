@@ -1,13 +1,9 @@
 import './CreateTodoButton.css'
 import btnIcon from '../assets/add.svg'
-import { useContext } from 'react'
-import { TodoContext } from '../TodoContext/TodoContex'
 
-function CreateTodoButton() {
-    const { 
-        openModal,
-        setOpenModal 
-    } = useContext(TodoContext)
+/* eslint-disable react/prop-types */
+function CreateTodoButton({  openModal, setOpenModal } ) {
+
 
     return(
         <button 

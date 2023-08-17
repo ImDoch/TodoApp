@@ -1,16 +1,10 @@
 import './TodoAdd.css'
 import closeIcon from '../assets/close-modal.svg'
-import { useContext, useState } from 'react'
-import { TodoContext } from '../TodoContext/TodoContex'
+import { useState } from 'react'
 
-
-
-function TodoAdd() {
-    const {
-        addTodoValue,
-        setOpenModal,
-    } = useContext(TodoContext)
-
+/* eslint-disable react/prop-types */
+function TodoAdd({ addTodoValue, setOpenModal }) {
+ 
     const [newTodoValue, setNewTodoValue] = useState('')
 
     const onSubmit = (event) => {

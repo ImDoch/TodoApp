@@ -1,12 +1,9 @@
 import './TodoList.css'
 import { DefaultTodoItem } from '../DefaultTodoItem/DefaultTodoItem'
-import { useContext } from 'react'
-import { TodoContext } from '../TodoContext/TodoContex'
 
 /* eslint-disable react/prop-types */
-function TodoList({children}) {
-    const { withoutTodos, searchedTodos } = useContext(TodoContext)
-    const render = withoutTodos || searchedTodos.length == 0 ? <DefaultTodoItem /> : children
+function TodoList({children, withoutTodos, searchedTodos}) {
+    const render = withoutTodos || searchedTodos.length == 0 ? <DefaultTodoItem withoutTodos = {withoutTodos}/> : children
     return(
         <div className='td-listContainer'>
             <h1>Mis Todos </h1>
